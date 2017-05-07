@@ -1,0 +1,83 @@
+.text:00401340                 push    ebp
+.text:00401341                 mov     ebp, esp
+.text:00401343                 push    ebx
+.text:00401344                 and     esp, 0FFFFFFF0h
+.text:00401347                 sub     esp, 30h
+.text:0040134A                 call    ___main
+.text:0040134F                 lea     eax, [esp+18h]
+.text:00401353                 mov     [esp+4], eax
+.text:00401357                 mov     dword ptr [esp], offset aS ; "%s"
+.text:0040135E                 call    _scanf
+.text:00401363                 mov     dword ptr [esp+2Ch], 0
+.text:0040136B                 jmp     short loc_4013D6
+.text:0040136D ; ---------------------------------------------------------------------------
+.text:0040136D
+.text:0040136D loc_40136D:                             ; CODE XREF: _main+A8j
+.text:0040136D                 lea     edx, [esp+18h]
+.text:00401371                 mov     eax, [esp+2Ch]
+.text:00401375                 add     eax, edx
+.text:00401377                 movzx   eax, byte ptr [eax]
+.text:0040137A                 cmp     al, 7Ah
+.text:0040137C                 jg      short loc_4013D1
+.text:0040137E                 lea     edx, [esp+18h]
+.text:00401382                 mov     eax, [esp+2Ch]
+.text:00401386                 add     eax, edx
+.text:00401388                 movzx   eax, byte ptr [eax]
+.text:0040138B                 cmp     al, 60h
+.text:0040138D                 jle     short loc_4013D1
+.text:0040138F                 lea     edx, [esp+18h]
+.text:00401393                 mov     eax, [esp+2Ch]
+.text:00401397                 add     eax, edx
+.text:00401399                 movzx   eax, byte ptr [eax]
+.text:0040139C                 movsx   eax, al
+.text:0040139F                 sub     eax, [esp+2Ch]
+.text:004013A3                 lea     ecx, [eax-47h]    //此处至4013C0为%操作
+.text:004013A6                 mov     edx, 4EC4EC4Fh
+.text:004013AB                 mov     eax, ecx
+.text:004013AD                 imul    edx
+.text:004013AF                 sar     edx, 3
+.text:004013B2                 mov     eax, ecx
+.text:004013B4                 sar     eax, 1Fh
+.text:004013B7                 sub     edx, eax
+.text:004013B9                 mov     eax, edx
+.text:004013BB                 imul    eax, 1Ah
+.text:004013BE                 sub     ecx, eax
+.text:004013C0                 mov     eax, ecx
+.text:004013C2                 add     eax, 61h
+.text:004013C5                 lea     ecx, [esp+18h]
+.text:004013C9                 mov     edx, [esp+2Ch]
+.text:004013CD                 add     edx, ecx
+.text:004013CF                 mov     [edx], al
+.text:004013D1
+.text:004013D1 loc_4013D1:                             ; CODE XREF: _main+3Cj
+.text:004013D1                                         ; _main+4Dj
+.text:004013D1                 add     dword ptr [esp+2Ch], 1
+.text:004013D6
+.text:004013D6 loc_4013D6:                             ; CODE XREF: _main+2Bj
+.text:004013D6                 mov     ebx, [esp+2Ch]
+.text:004013DA                 lea     eax, [esp+18h]
+.text:004013DE                 mov     [esp], eax      ; char *
+.text:004013E1                 call    _strlen
+.text:004013E6                 cmp     ebx, eax
+.text:004013E8                 jb      short loc_40136D
+.text:004013EA                 mov     dword ptr [esp+4], offset aSjaqbYtkphtjrd ; "sjaqb{ytkphtjrddo}"
+.text:004013F2                 lea     eax, [esp+18h]
+.text:004013F6                 mov     [esp], eax      ; char *
+.text:004013F9                 call    _strcmp
+.text:004013FE                 test    eax, eax
+.text:00401400                 jnz     short loc_401410
+.text:00401402                 mov     dword ptr [esp], offset aCongratulation ; "Congratulations!"
+.text:00401409                 call    _printf
+.text:0040140E                 jmp     short loc_40141C
+.text:00401410 ; ---------------------------------------------------------------------------
+.text:00401410
+.text:00401410 loc_401410:                             ; CODE XREF: _main+C0j
+.text:00401410                 mov     dword ptr [esp], offset aSorryTryAgain ; "Sorry,try again!"
+.text:00401417                 call    _printf
+.text:0040141C
+.text:0040141C loc_40141C:                             ; CODE XREF: _main+CEj
+.text:0040141C                 mov     eax, 0
+.text:00401421                 mov     ebx, [ebp+var_4]
+.text:00401424                 leave
+.text:00401425                 retn
+.text:00401425 _main           endp
