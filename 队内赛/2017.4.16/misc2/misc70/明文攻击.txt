@@ -1,4 +1,0 @@
-https://www.bodkin.ren/?p=775
-https://github.com/evalsafe/TopicShare/blob/master/2015.10.10-ZIP隴恅馴僻-xmsec.md
-
-pkcrack 每c key.txt 每p key.txt 每C misc50.zip 每P key.zip  -d de.zip
